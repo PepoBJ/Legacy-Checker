@@ -17,10 +17,7 @@
   },
   "homepage": "https://github.com/PepoBJ/Legacy-Checker#readme",
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
     "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0"

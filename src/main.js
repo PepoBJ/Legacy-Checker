@@ -28,7 +28,7 @@ String.prototype.removeAccents = function() {
 
 /** REGION: VALIDATORS */
 
-const validateRequestType = (rows) => {
+function validateRequestType (rows) {
     const requestType = rows.filter(row => row.indexOf('TIPO DE SOLICITUD') !== -1);
 
     if (!requestType.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "TIPO DE SOLICITUD"' }];
@@ -56,7 +56,7 @@ const validateRequestType = (rows) => {
     return response;
 }
 
-const validateDateRequest = (rows) => {
+function validateDateRequest (rows) {
     const dateRequest = rows.filter(row => row.indexOf('FECHA DE SOLICITUD') !== -1 || row.indexOf('FECHA DE LA SOLICITUD') !== -1);
 
     if (!dateRequest.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "FECHA DE SOLICITUD"' }]
@@ -76,7 +76,7 @@ const validateDateRequest = (rows) => {
     return response;
 }
 
-const validateVoB = (rows, repository = 'PELKDVI') => {
+function validateVoB (rows, repository = 'PELKDVI') {
     const vOB = rows.filter(row => row.indexOf('VOB') !== -1);
 
     if (!vOB.length) return { 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "VOB"' }
@@ -90,7 +90,7 @@ const validateVoB = (rows, repository = 'PELKDVI') => {
     return { 'group': 'Notes', 'type': 'Ok', 'comment': `VoB correcta: [${identify}]` }
 }
 
-const validateCordinator = (rows) => {
+function validateCordinator (rows) {
     const groupOfCordinator = rows.filter(row => row.indexOf('GRUPO COORDINADOR') !== -1);
     const nameOfCordinator = rows.filter(row => row.indexOf('COORDINADOR DE LANZAMIENTOS') !== -1);
 
@@ -101,7 +101,7 @@ const validateCordinator = (rows) => {
     { 'group': 'Notes', 'type': 'Ok', 'comment': `Coordinador de lanzamientos correcto: ${nameOfCordinator[nameOfCordinator.length - 1]}` }];
 }
 
-const validateDiagramns = (rows) => {
+function validateDiagramns (rows) {
     const architectureUnified = rows.filter(row => row.indexOf('HTTPS://CONFLUENCE.LIMA.BCP.COM.PE/DISPLAY/COEDAPUB/COMPONENTES+DE+LA+ARQUITECTURA+UNIFICADA+DE+DATOS') !== -1);
     const architectureRed = rows.filter(row => row.indexOf('HTTPS://CONFLUENCE.LIMA.BCP.COM.PE/DISPLAY/COEDAPUB/ARQUITECTURA+DE+RED') !== -1);
     const architectureDataLake = rows.filter(row => row.indexOf('HTTPS://CONFLUENCE.LIMA.BCP.COM.PE/DISPLAY/COEDAPUB/TAXONOMIA+DEL+DATA+LAKE') !== -1);
@@ -120,7 +120,7 @@ const validateDiagramns = (rows) => {
     return responses;
 }
 
-const validateContact = (rows) => {
+function validateContact (rows) {
     const nameContact = rows.filter(row => row.indexOf('NOMBRE CONTACTO PASE') !== -1);
     const phoneContact = rows.filter(row => row.indexOf('CELULAR CONTACTO PASE') !== -1);
     const response = [];
@@ -140,7 +140,7 @@ const validateContact = (rows) => {
     return response;
 }
 
-const validateLastCommitId = async (rows, bitbucketToken, agilTicket) => {
+async function validateLastCommitId (rows, bitbucketToken, agilTicket) {
     const commitId = rows.filter(row => row.indexOf('COMMIT') !== -1);
 
     if (!commitId.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "COMMIT ID"' }];
@@ -186,7 +186,7 @@ const validateLastCommitId = async (rows, bitbucketToken, agilTicket) => {
     return response;
 }
 
-const validateResume = (rows) => {
+function validateResume (rows) {
     const applicationResume = rows.filter(row => row.indexOf('APP:') !== -1);
     const agilTicketResume = rows.filter(row => row.indexOf('TA:') !== -1);
     const criticalityResume = rows.filter(row => row.indexOf('CRITICIDAD:') !== -1);
@@ -218,7 +218,7 @@ const validateResume = (rows) => {
         'validations': response};
 }
 
-const validateTemplate = () => {
+function validateTemplate () {
     const validateTemplate = document.querySelectorAll('.ardbnz1D_Template_Name > textarea')[0].value ===  'SOLICITUD CONGELAMIENTO PREPARACION AMBIENTE Y PASE A PRODUCCION - LEGACY';
 
     if (!validateTemplate) return { 'group': 'Template', 'type': 'Error', 'comment': 'Plantilla incorrecta, debe usar "SOLICITUD CONGELAMIENTO PREPARACION AMBIENTE Y PASE A PRODUCCION - LEGACY"' }
@@ -229,7 +229,7 @@ const validateTemplate = () => {
 /** END REGION: VALIDATORS */
 
 
-const validate = async (token) => {
+async function validate (token) {
     const validations = [];
     const resume = document.querySelectorAll('.ardbnDescription > textarea')[0].value.split('\n').map(row => row.replace(/\s+/g, ' ').trim().removeAccents().toUpperCase());
     const notes = document.querySelectorAll('.ardbnDetailedDescription  > textarea')[0].value.split('\n').map(row => row.replace(/\s+/g, ' ').trim().removeAccents().toUpperCase());
