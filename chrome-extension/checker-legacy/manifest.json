@@ -1,0 +1,32 @@
+{
+  "name": "BCP Legacy Checker",
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "BCP Legacy Checker",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "BCP Legacy Checker",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["test.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pep.js"
+      ],
+      "matches":["<all_urls>"]
+    }
+  ]
+}

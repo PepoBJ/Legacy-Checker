@@ -1,6 +1,6 @@
 {
   "name": "legacy-checker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Legacy-checker Private",
   "main": "dist/main.js",
   "umd:main": "dist/main.umd.js",
@@ -8,8 +8,7 @@
   "source": "src/main.js",
   "scripts": {
     "build": "gulp",
-    "prepublish": "npm run build",
-    "publish": "npm publish --access public"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
