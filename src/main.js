@@ -334,12 +334,12 @@ function renderCSS() {
         }
         
         .forms-checker .token-checker {
-        width:85%!important;
+        width:75%!important;
         box-sizing:border-box!important;
         padding:3px!important;
         }
         
-        .forms-checker .btn-checker {
+        .forms-checker .btn-checker, .forms-checker .btn-cleaner {
         background-color:#13aa52!important;
         border:1px solid #13aa52!important;
         border-radius:4px!important;
@@ -357,13 +357,15 @@ function renderCSS() {
         user-select:none!important;
         -webkit-user-select:none!important;
         touch-action:manipulation!important;
+        padding: 1px 6px !important;
         }
 
-        .btn-checker { 
-            padding: 1px 6px !important;
+        .forms-checker .btn-cleaner {
+            background-color:rgba(255, 140, 0, 1) !important;
+            border-color:rgba(255, 110, 0, 1) !important;
         }
         
-        .forms-checker .btn-checker:hover,.btn-close:hover,.btn-minify:hover {
+        .forms-checker .btn-checker:hover,.btn-close:hover,.btn-minify:hover,.btn-cleaner:hover {
         box-shadow:rgba(0,0,0,.15) 0 3px 9px 0!important;
         transform:translateY(-2px)!important;
         }
@@ -429,7 +431,7 @@ function renderCSS() {
         color:#009879!important;
         }
         
-        .btn-minify,.btn-close,.btn-checker,.forms-checker,.forms-checker .token-checker,.forms-checker .btn-checker,.banner-checker,#error-checkers,.checker-table {
+        .btn-minify,.btn-close,.btn-checker,.forms-checker,.forms-checker .token-checker,.forms-checker .btn-checker,.forms-checker .btn-cleaner,.banner-checker,#error-checkers,.checker-table {
         position:relative!important;
         z-index:1000000000!important;
         }
@@ -484,6 +486,7 @@ function renderHTML() {
         <div class="forms-checker">
             <input type="text" class="token-checker" id="token-checker" placeholder="Ingresa tu token de bitbucket">
             <button class="btn-checker" id="btn-checker" >Validar</button>
+            <button class="btn-cleaner" id="btn-cleaner" >Limpiar</button>
         </div>
         <div id="error-checkers"></div>
   
@@ -527,6 +530,13 @@ function renderEvents() {
     document.getElementById('btn-close').addEventListener('click', function (event) {
         document.getElementById('general-checker').remove();
     });
+    
+    document.getElementById('btn-cleaner').addEventListener('click', function () {
+        var table = document.querySelector('#checker-table tbody');
+        table.innerHTML = `<tr>
+            <td colspan="3"></td>
+        </tr>`;
+    });
 
     document.getElementById('btn-checker').addEventListener('click', async function (event) {
         var token = document.getElementById('token-checker').value;
@@ -541,13 +551,13 @@ function renderEvents() {
 
         localStorage.setItem('chekcert-token-bitbucket', token);
         var table = document.querySelector('#checker-table tbody');
+        table.innerHTML = `<tr>
+            <td colspan="3" style="text-align: center !important" class="checker-td-bold">Analizando...</td>
+        </tr>`;
 
         try {
             var data = await validate(token);
-
             var contentStr = '';
-
-            table.innerHTML = ``;
 
             data.forEach(element => {
                 contentStr += `<tr>
