@@ -1,8 +1,6 @@
 
 # BCP LEGACY - CHECKER | MINSAIT
 
-[Link to heading](#Authors)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Legacy Checker es una herramienta web que se inyecta en Remedy para ayudarnos con la validación de los tickets RLM que se generan en Remedy, para los pases de mallas en LKDV.
@@ -49,9 +47,9 @@ await fetch(new Request('https://unpkg.com/legacy-checker/dist/main.js')).then(j
 
 ## Validación con Bitbucket
 
-Para poder realizar la validación del commit id correcto en bitbucket es necesario que tenga configurado y ejecutando `BCPServer`
+Para poder realizar la validación del commit id correcto en bitbucket es necesario que tenga configurado y ejecutando [BCPServer](https://github.com/PepoBJ/AutoDoc-BCPServer)
 
 ## Authors
 
-- [@roberthuaman](https://www.github.com/pepobj)
+- [@pepbj](https://www.github.com/pepobj)
 
