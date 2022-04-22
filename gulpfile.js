@@ -19,7 +19,7 @@ const paths = {
 function minifyScripts() {
   return src(paths.scripts.src)
       .pipe(concat('main.js'))
-      // .pipe(terser().on('error', (error) => console.log(error)))
+      .pipe(terser().on('error', (error) => console.log(error)))
       .pipe(dest(paths.scripts.dest));
 }
 
