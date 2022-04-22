@@ -1,4 +1,4 @@
-const validateContact = (rows) => {
+function validateContact (rows) {
     const nameContact = rows.filter(row => row.indexOf('NOMBRE CONTACTO PASE') !== -1);
     const phoneContact = rows.filter(row => row.indexOf('CELULAR CONTACTO PASE') !== -1);
     const response = [];

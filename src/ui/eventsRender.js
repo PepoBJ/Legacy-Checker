@@ -1,4 +1,4 @@
-const renderEvents = () => {
+function renderEvents () {
     document.getElementById('btn-minify').addEventListener('click', (event) => {
         const element = event.target;
         const container = document.getElementById('containner-checker');
@@ -34,7 +34,7 @@ const renderEvents = () => {
 
         try {
             const data = await validate();
-            const contentStr = '';
+            let contentStr = '';
 
             data.forEach(element => {
                 contentStr += `<tr>

@@ -1,7 +1,7 @@
-const validate = async () => {
+async function validate () {
     const repository = 'PELKDVI';
     
-    const validations = [];
+    let validations = [];
     const resume = document.querySelectorAll('.ardbnDescription > textarea')[0].value.split('\n').map(row => row.replace(/\s+/g, ' ').trim().removeAccents().toUpperCase());
     const notes = document.querySelectorAll('.ardbnDetailedDescription  > textarea')[0].value.split('\n').map(row => row.replace(/\s+/g, ' ').trim().removeAccents().toUpperCase());
     //resumeValid.applicative

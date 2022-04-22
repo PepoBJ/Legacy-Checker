@@ -1,4 +1,4 @@
-const validateLastCommitId = async (rows, project, repository, agilTicket) => {
+async function validateLastCommitId (rows, project, repository, agilTicket) {
     const commitId = rows.filter(row => row.indexOf('COMMIT') !== -1);
 
     if (!commitId.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "COMMIT ID"' }];

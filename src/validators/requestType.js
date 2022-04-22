@@ -1,4 +1,4 @@
-const validateRequestType = (rows) => {
+function validateRequestType (rows) {
     const requestType = rows.filter(row => row.indexOf('TIPO DE SOLICITUD') !== -1);
 
     if (!requestType.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "TIPO DE SOLICITUD"' }];

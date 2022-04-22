@@ -1,4 +1,4 @@
-const validateCordinator = (rows) => {
+function validateCordinator (rows) {
     const groupOfCordinator = rows.filter(row => row.indexOf('GRUPO COORDINADOR') !== -1);
     const nameOfCordinator = rows.filter(row => row.indexOf('COORDINADOR DE LANZAMIENTOS') !== -1);
 

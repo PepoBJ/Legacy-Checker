@@ -1,4 +1,4 @@
-const validateResume = (rows) => {
+function validateResume (rows) {
     const applicationResume = rows.filter(row => row.indexOf('APP:') !== -1);
     const agilTicketResume = rows.filter(row => row.indexOf('TA:') !== -1);
     const criticalityResume = rows.filter(row => row.indexOf('CRITICIDAD:') !== -1);

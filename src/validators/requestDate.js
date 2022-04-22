@@ -1,4 +1,4 @@
-const validateDateRequest = (rows) => {
+function validateDateRequest (rows) {
     const dateRequest = rows.filter(row => row.indexOf('FECHA DE SOLICITUD') !== -1 || row.indexOf('FECHA DE LA SOLICITUD') !== -1);
 
     if (!dateRequest.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "FECHA DE SOLICITUD"' }]

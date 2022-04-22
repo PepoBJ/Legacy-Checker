@@ -1,4 +1,4 @@
-const launchApp = () => {
+function launchApp () {
     if (document.getElementById('general-checker')) {
         alert('Ya se desplego el validador!');
 

@@ -1,4 +1,4 @@
-const renderHTML = () => {
+function renderHTML () {
     const body = document.body || document.getElementsByTagName("body")[0];
     const content = document.createElement('div');
 

@@ -1,4 +1,4 @@
-String.prototype.removeAccents = () => {
+String.prototype.removeAccents = function () {
     const accentsMap = new Map([
         ["A", "Á|À|Ã|Â|Ä"],
         ["a", "á|à|ã|â|ä"],

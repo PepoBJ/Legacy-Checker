@@ -1,4 +1,4 @@
-const validateDiagramns = (rows) => {
+function validateDiagramns (rows) {
     const architectureUnified = rows.filter(row => row.indexOf('HTTPS://CONFLUENCE.LIMA.BCP.COM.PE/DISPLAY/COEDAPUB/COMPONENTES+DE+LA+ARQUITECTURA+UNIFICADA+DE+DATOS') !== -1);
     const architectureRed = rows.filter(row => row.indexOf('HTTPS://CONFLUENCE.LIMA.BCP.COM.PE/DISPLAY/COEDAPUB/ARQUITECTURA+DE+RED') !== -1);
     const architectureDataLake = rows.filter(row => row.indexOf('HTTPS://CONFLUENCE.LIMA.BCP.COM.PE/DISPLAY/COEDAPUB/TAXONOMIA+DEL+DATA+LAKE') !== -1);

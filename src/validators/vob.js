@@ -1,4 +1,4 @@
-const validateVoB = (rows, repository = 'PELKDVI') => {
+function validateVoB (rows, repository = 'PELKDVI') {
     const vOB = rows.filter(row => row.indexOf('VOB') !== -1);
 
     if (!vOB.length) return { 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "VOB"' }
