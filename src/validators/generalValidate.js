@@ -18,9 +18,9 @@ async function validate () {
     validations = validations.concat(validateContact(notes));
     validations = validations.concat(validateJenkinsPipelines(notes));
     validations = validations.concat(await validateLastCommitId(notes, resumeValid.applicative, repository, resumeValid.agilTicket));
-    validations = validations.concat(await validateDevelopBranchOrigin(notes, resumeValid.applicative, repository, resumeValid.agilTicket));
-    validations = validations.concat(await validateBranches(notes, resumeValid.applicative, repository, resumeValid.agilTicket));
-    validations = validations.concat(await validateChangePullRequest(notes, resumeValid.applicative, repository, resumeValid.agilTicket));
+    validations = validations.concat(await validateDevelopBranchOrigin(resumeValid.applicative, repository, resumeValid.agilTicket));
+    validations = validations.concat(await validateBranches(resumeValid.applicative, repository, resumeValid.agilTicket));
+    validations = validations.concat(await validateChangePullRequest(resumeValid.applicative, repository, resumeValid.agilTicket));
 
     return validations;
 }
