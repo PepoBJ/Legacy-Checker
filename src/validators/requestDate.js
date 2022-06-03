@@ -13,7 +13,7 @@ function validateDateRequest (rows) {
     dateCatchFormated = new Date(+dateCatch[2], dateCatch[1] - 1, +dateCatch[0]);
     differenceFromNow = (new Date() - dateCatchFormated) / (1000 * 3600 * 24);
 
-    if (differenceFromNow != 0) response.push({ 'group': 'Notes', 'type': 'Warning', 'comment': `Existen ${differenceFromNow.toFixed(2)} días de diferencia respecto a hoy!` })
+    if (differenceFromNow != 0) response.push({ 'group': 'Notes', 'type': 'Warning', 'comment': `Existen ${differenceFromNow.toFixed(2)} días de diferencia respecto a hoy y la fecha de solicitud!` })
 
     return response;
 }

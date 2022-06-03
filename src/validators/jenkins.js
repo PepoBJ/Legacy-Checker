@@ -10,8 +10,8 @@ function validateJenkinsPipelines (rows) {
     if (!pipelineProduction.length) responses.push({ 'group': 'Resume', 'type': 'Warning', 'comment': 'No se pudo identificar "Pipeline FPH Producción"' });
 
     if (validationPipeline.length) responses.push({ 'group': 'Notes', 'type': 'Ok', 'comment': `Pipeline Jenkins de validación correcto: ${validationPipeline[validationPipeline.length - 1]}` });
-    if (pipelineCertification) responses.push({ 'group': 'Resume', 'type': 'Ok', 'comment': `Pipeline FPH Certificación correcto: ${pipelineCertification[pipelineCertification.length - 1]}` });
-    if (pipelineProduction) responses.push({ 'group': 'Resume', 'type': 'Ok', 'comment': `Pipeline FPH Producción correcto: ${pipelineProduction[pipelineProduction.length - 1]}` });
+    if (pipelineCertification.length) responses.push({ 'group': 'Resume', 'type': 'Ok', 'comment': `Pipeline FPH Certificación correcto: ${pipelineCertification[pipelineCertification.length - 1]}` });
+    if (pipelineProduction.length) responses.push({ 'group': 'Resume', 'type': 'Ok', 'comment': `Pipeline FPH Producción correcto: ${pipelineProduction[pipelineProduction.length - 1]}` });
 
     return responses;
 }
