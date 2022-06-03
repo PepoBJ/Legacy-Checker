@@ -13,7 +13,7 @@ function validateResume (rows) {
     const application = applicationResume.length ? applicationResume[0].match(/^APP:(\s?)(LKDV|DWI)/) : null;
     const agilTicket = agilTicketResume.length ? agilTicketResume[0].match(/^TA:(\s?)(TA[0-9]{9})$/) : null;
     const criticality = criticalityResume.length ? criticalityResume[0].match(/^CRITICIDAD:(\s?)(2)/gm) : null;
-    const productOwner = productOwnerResume.length ? productOwnerResume[0].match(/^PO:(\s?)(.*)/gm) : null;
+    const productOwner = productOwnerResume.length ? productOwnerResume[0].match(/^(JDE\/)?PO:(\s?)(.*)/gm) : null;
 
     if (applicationResume.length && !application) response.push({ 'group': 'Resume', 'type': 'Error', 'comment': `APP incorrecto: ${applicationResume[0]}` });
     if (agilTicketResume.length && !agilTicket) response.push({ 'group': 'Resume', 'type': 'Error', 'comment': `TA incorrecto: ${agilTicketResume[0]}` });

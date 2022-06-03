@@ -16,6 +16,7 @@ async function validate () {
     validations = validations.concat(validateCordinator(notes));
     validations = validations.concat(validateDiagramns(notes));
     validations = validations.concat(validateContact(notes));
+    validations = validations.concat(validateJenkinsPipelines(notes));
     validations = validations.concat(await validateLastCommitId(notes, resumeValid.applicative, repository, resumeValid.agilTicket));
 
     return validations;
