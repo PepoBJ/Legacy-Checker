@@ -13,10 +13,10 @@ function validateRequestType (rows) {
     const hito = document.querySelectorAll('.ardbnz1DMilestone > textarea')[0].value.removeAccents().toUpperCase();
     const targetDate = document.querySelectorAll('.ardbnTargetDate > input')[0].value.removeAccents().toUpperCase();
 
-    if ((validationType.indexOf('CONGELAMIENTO') !== -1 || validationType.indexOf('FORMATO') !== -1) && hito != 'PRUEBA') {
+    if ((validationType.indexOf('CONGELAMIENTO') !== -1 || validationType.indexOf('FORMATO') !== -1) && hito != 'PRUEBA' && hito != 'TEST') {
         response.push({ 'group': 'Notes', 'type': 'Error', 'comment': `La solicitud ${validationType} esta en el hito ${hito}, debería estar en [PRUEBA].` });
     }
-    else if (validationType.indexOf('PASE A PRODUCCION') !== -1 && hito != 'APLICACION') {
+    else if (validationType.indexOf('PASE A PRODUCCION') !== -1 && hito != 'APLICACION' && hito != 'APPLICATION') {
         response.push({ 'group': 'Notes', 'type': 'Error', 'comment': `La solicitud ${validationType} esta en el hito ${hito}, debería estar en [APLICACION].` });
     }
     else if (validationType.indexOf('PASE A PRODUCCION') !== -1 && targetDate.length < 1) {

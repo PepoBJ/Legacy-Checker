@@ -1,6 +1,6 @@
 {
   "name": "legacy-checker",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Legacy-checker Private",
   "main": "dist/main.js",
   "umd:main": "dist/main.umd.js",
