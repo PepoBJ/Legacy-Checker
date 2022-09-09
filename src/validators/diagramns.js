@@ -10,8 +10,8 @@ function validateDiagramns (rows) {
     if (!architectureUnified.length) responses.push({ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "ARQUITECTURA UNIFICADA DE DATOS"' });
     if (!architectureRed.length) responses.push({ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "ARQUITECTURA DE RED"' });
     if (!architectureDataLake.length) responses.push({ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "TAXONOMIA DE DATALAKE"' });
-    if (!softwareDiagram.length) responses.push({ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "DIAGRAGA DE SOFTWARE"' });
-    if (!sequenceDiagram.length) responses.push({ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "DIAGRAGA DE SECUENCIAS"' });
+    if (!softwareDiagram.length) responses.push({ 'group': 'Notes', 'type': 'Warning', 'comment': 'No se pudo identificar "DIAGRAMA DE SOFTWARE"' });
+    if (!sequenceDiagram.length) responses.push({ 'group': 'Notes', 'type': 'Warning', 'comment': 'No se pudo identificar "DIAGRAMA DE SECUENCIAS"' });
 
     if (architectureUnified.length) responses.push({ 'group': 'Notes', 'type': 'Ok', 'comment': `UDA correcto: ${architectureUnified[architectureUnified.length - 1]}` });
     if (architectureRed.length) responses.push({ 'group': 'Notes', 'type': 'Ok', 'comment': `Arquitectura de red correcto: ${architectureRed[architectureRed.length - 1]}` });

@@ -3,7 +3,7 @@ function validateDateRequest (rows) {
 
     if (!dateRequest.length) return [{ 'group': 'Notes', 'type': 'Error', 'comment': 'No se pudo identificar "FECHA DE SOLICITUD"' }]
 
-    const identify = dateRequest[0].match(/^(-(\s?)FECHA DE (LA)?(\s?)SOLICITUD(:)(\s?))([0-9]{2}[-?\/?][0-9]{2}[-?\/?][0-9]{4})/)
+    const identify = dateRequest[0].match(/^(-(\s?)FECHA DE (LA)?(\s?)SOLICITUD(\s?)(:)(\s?))([0-9]{2}[-?\/?][0-9]{2}[-?\/?][0-9]{4})/)
 
     if (!identify) return [{ 'group': 'Notes', 'type': 'Error', 'comment': `Fecha de solicitud incorrecta: [${dateRequest[0]}]` }];
 
